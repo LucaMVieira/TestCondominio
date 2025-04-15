@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('apartamentos', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('condominio_id')->constrained()->onDelete('cascade');
+            $table->string('numero');
+            $table->string('bloco')->nullable();
             $table->timestamps();
         });
     }
